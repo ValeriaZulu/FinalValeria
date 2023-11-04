@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.util.HashMap;
 
 public class ValeriaFinal {
 
@@ -42,6 +43,26 @@ public class ValeriaFinal {
         }
         return resultados;
     }
+
+    public static double dineroDia(String[][]resultados){
+      
+        double transaccion;
+        double totalDia=0;
+
+        for (int i = 0; i < 100; i++) {
+            transaccion = Double.parseDouble(resultados[i][1]);
+
+            if (Integer.parseInt(resultados[i][2]) == 1) {
+                transaccion = transaccion * 2;
+            }
+            if (Integer.parseInt(resultados[i][2]) == 2) {
+                transaccion = transaccion * 2.8;
+            }
+
+            totalDia += transaccion;
+        }
+           return totalDia;
+    }
     
     public static void main(String[] args) {
 
@@ -53,6 +74,29 @@ public class ValeriaFinal {
         String[][] sabadoData = fillWeekDays("src\\sabado.txt");
         String[][] domingoData = fillWeekDays("src\\domingo.txt");
 
-        
+
+        HashMap<String, Double> ventas = new HashMap<String, Double>();
+
+        ventas.put("Lunes", dineroDia(lunesData));        
+        ventas.put("Martes", dineroDia(martesData));        
+        ventas.put("Miercoles", dineroDia(miercolesData));        
+        ventas.put("Jueves", dineroDia(juevesData));        
+        ventas.put("Viernes", dineroDia(viernesData));        
+        ventas.put("Sabado", dineroDia(sabadoData));        
+        ventas.put("Domingo", dineroDia(domingoData));        
+
+        String maxVentas = null;
+        double maxValue = Double.MIN_VALUE;
+
+        for (String dia : ventas.keySet()) {
+            double value = ventas.get(dia);
+
+            if (value > maxValue) {
+                maxValue = value;
+                maxVentas = dia;
+            }
+        }
+        System.out.println("El día de la semana que más dinero movió fue el " + maxVentas);
+
 }
 }
