@@ -19,12 +19,15 @@ public class ValeriaFinal {
             br = new BufferedReader(fr);
             
             String Linea;
-            for (int j = 0; j < 100; j++) {           
+            while ((Linea=br.readLine())!=null) {
+                for (int j = 0; j < 100; j++) {           
                 String[] split = Linea.split(";");
                 resultados[j]=split;
+                Linea=br.readLine();
              }
-            
+            }
 
+            
         } catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Error al leer el archivo");
@@ -37,21 +40,18 @@ public class ValeriaFinal {
                 e2.getMessage();
             }
         }
-
         return resultados;
-
     }
     
     public static void main(String[] args) {
 
-        String[] dias = {"lunes","martes","miercoles","jueves","viernes","sabado","domingo"};
-        String[][] lunesData = fillWeekDays("lunes.txt");
-        String[][] martesData = fillWeekDays("martes.txt");
-        String[][] miercolesData = fillWeekDays("miercoles.txt");
-        String[][] juevesData = fillWeekDays("jueves.txt");
-        String[][] viernesData = fillWeekDays("viernes.txt");
-        String[][] sabadoData = fillWeekDays("sabado.txt");
-        String[][] domingoData = fillWeekDays("domingo.txt");
+        String[][] lunesData = fillWeekDays("src\\lunes.txt");
+        String[][] martesData = fillWeekDays("src\\martes.txt");
+        String[][] miercolesData = fillWeekDays("src\\miercoles.txt");
+        String[][] juevesData = fillWeekDays("src\\jueves.txt");
+        String[][] viernesData = fillWeekDays("src\\viernes.txt");
+        String[][] sabadoData = fillWeekDays("src\\sabado.txt");
+        String[][] domingoData = fillWeekDays("src\\domingo.txt");
 
         
 }
