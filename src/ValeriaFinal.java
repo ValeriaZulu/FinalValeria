@@ -2,7 +2,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.util.HashMap;
-import java.util.Map;
+import java.util.Scanner;
 
 public class ValeriaFinal {
 
@@ -48,13 +48,13 @@ public class ValeriaFinal {
         double transaccion;
         double totalDia = 0;
 
-        for (int i = 0; i < 100; i++) {
-            transaccion = Double.parseDouble(resultados[i][1]);
+        for (int x = 0; x < 100; x++) {
+            transaccion = Double.parseDouble(resultados[x][1]);
 
-            if (Integer.parseInt(resultados[i][2]) == 1) {
+            if (Integer.parseInt(resultados[x][2]) == 1) {
                 transaccion = transaccion * 2;
             }
-            if (Integer.parseInt(resultados[i][2]) == 2) {
+            if (Integer.parseInt(resultados[x][2]) == 2) {
                 transaccion = transaccion * 2.8;
             }
 
@@ -67,22 +67,38 @@ public class ValeriaFinal {
 
         int[] repeticiones = new int[resultados.length];
 
-        for (int i = 0; i < resultados.length; i++) {
-            int numero = Integer.parseInt(resultados[i][4]);
+        for (int x = 0; x < resultados.length; x++) {
+            int numero = Integer.parseInt(resultados[x][4]);
             repeticiones[numero]++;
         }
 
         int horaMasRepetida = 0;
         int maxRepeticion = 0;
 
-        for (int i = 0; i < repeticiones.length; i++) {
-            if (repeticiones[i] > maxRepeticion) {
-                horaMasRepetida = i;
-                maxRepeticion = repeticiones[i];
+        for (int x = 0; x < repeticiones.length; x++) {
+            if (repeticiones[x] > maxRepeticion) {
+                horaMasRepetida = x;
+                maxRepeticion = repeticiones[x];
             }
         }
 
         return horaMasRepetida;
+    }
+
+    public static String searchId(String[][] resultados, String id) {
+
+        String response = "";
+
+        for (int x = 0; x < resultados.length; x++) {
+            if (resultados[x][0].equals(id)) {
+                for (int j = 0; j < resultados[x].length; j++) {
+                    response += resultados[x][j] + " ";
+                }
+                break;
+            }
+        }
+
+        return response;
     }
 
     public static void main(String[] args) {
@@ -134,24 +150,98 @@ public class ValeriaFinal {
             repeticiones.put(valor, repeticiones.getOrDefault(valor, 0) + 1);
         }
 
-        int valorMasRepetido = 0;
+        int horaMasRepetida = 0;
         int maxRepeticion = 0;
 
         for (HashMap.Entry<Integer, Integer> entry : repeticiones.entrySet()) {
             if (entry.getValue() > maxRepeticion) {
-                valorMasRepetido = entry.getKey();
+                horaMasRepetida = entry.getKey();
                 maxRepeticion = entry.getValue();
             }
         }
 
-        System.out.print("La hora en la que más dinero se mueve es la hora " + valorMasRepetido + " con mayoría en ");
+        System.out.print("La hora en la que más dinero se mueve es la hora " + horaMasRepetida + " con mayoría en ");
 
         String separador = "";
-        for (Map.Entry<String, Integer> entry : horas.entrySet()) {
-            if (entry.getValue() == valorMasRepetido) {
+        for (HashMap.Entry<String, Integer> entry : horas.entrySet()) {
+            if (entry.getValue() == horaMasRepetida) {
                 System.out.print(separador + entry.getKey());
                 separador = " y ";
             }
         }
+
+        System.out.println();
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingrese el ID a buscar: ");
+        String id = scanner.nextLine();
+
+        String result;
+        do {
+            result = searchId(lunesData, id);
+            if (!result.isEmpty()) {
+                break;
+            }
+            result = searchId(martesData, id);
+            if (!result.isEmpty()) {
+                break;
+            }
+            result = searchId(miercolesData, id);
+            if (!result.isEmpty()) {
+                break;
+            }
+            result = searchId(juevesData, id);
+            if (!result.isEmpty()) {
+                System.out.println(result);
+                break;
+            }
+            result = searchId(viernesData, id);
+            if (!result.isEmpty()) {
+                break;
+            }
+            result = searchId(sabadoData, id);
+            if (!result.isEmpty()) {
+                break;
+            }
+            result = searchId(domingoData, id);
+            if (!result.isEmpty()) {
+                break;
+            }
+
+            System.out.println("ID no encontrado.");
+
+        } while (result.isEmpty());
+
+        String[] split = new String[5];
+        for (int j = 0; j < split.length; j++) {
+            split = result.split(" ");
+        }
+        System.out.println("ID: " + split[0]);
+        System.out.println("Envió: $" + split[1]);
+        switch (split[2]) {
+            case "0":
+                System.out.println("Remitente: natural");
+                break;
+            case "1":
+                System.out.println("Remitente: jurídica");
+                break;
+            case "2":
+                System.out.println("Remitente: ONG");
+                break;
+        }
+        switch (split[3]) {
+            case "0":
+                System.out.println("Receptor: natural");
+                break;
+            case "1":
+                System.out.println("Receptor: jurídica");
+                break;
+            case "2":
+                System.out.println("Receptor: ONG");
+                break;
+        }
+        System.out.println("Hora del día: " + split[4]);
+
+        scanner.close();
+
     }
 }
