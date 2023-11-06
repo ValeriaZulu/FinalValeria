@@ -313,6 +313,263 @@ public class ValeriaFinal {
                         break;
 
                     case 4:
+                        // imprimir n datos de x día
+                        // Se solicita al usuario ingresar x y n
+                        System.out.println("Ingresa el día: ");
+                        String x = scanner.next();
+                        System.out.println("Ingresa cuántas transacciones del " + x + " quieres ver: ");
+                        int n = scanner.nextInt();
+
+                        // Se verifica qué día desea ver el usuario y se imprime la información la
+                        // cantidad de veces que el usuario solicitó
+                        if (x.equals("lunes")) {
+                            System.out.println("A continuación " + n + " transacciones del " + x);
+                            System.out.println();
+                            System.out.println("--------------*--------------");
+                            for (int i = 0; i < n; i++) {
+                                System.out.println("ID: " + lunesData[i][0]);
+                                System.out.println("Envió: $" + lunesData[i][1]);
+                                switch (lunesData[i][2]) {
+                                    case "0":
+                                        System.out.println("Remitente: natural");
+                                        break;
+                                    case "1":
+                                        System.out.println("Remitente: jurídica");
+                                        break;
+                                    case "2":
+                                        System.out.println("Remitente: ONG");
+                                        break;
+                                }
+                                switch (lunesData[i][3]) {
+                                    case "0":
+                                        System.out.println("Receptor: natural");
+                                        break;
+                                    case "1":
+                                        System.out.println("Receptor: jurídica");
+                                        break;
+                                    case "2":
+                                        System.out.println("Receptor: ONG");
+                                        break;
+                                }
+                                System.out.println("Hora del día: " + lunesData[i][4]);
+                                System.out.println("--------------*--------------");
+                                System.out.println();
+                                System.out.println("--------------*--------------");
+
+                            }
+                        } else if (x.equals("martes")) {
+                            System.out.println("A continuación " + n + " transacciones del " + x);
+                            System.out.println();
+                            System.out.println("--------------*--------------");
+                            for (int i = 0; i < n; i++) {
+                                System.out.println("ID: " + martesData[i][0]);
+                                System.out.println("Envió: $" + martesData[i][1]);
+                                switch (martesData[i][2]) {
+                                    case "0":
+                                        System.out.println("Remitente: natural");
+                                        break;
+                                    case "1":
+                                        System.out.println("Remitente: jurídica");
+                                        break;
+                                    case "2":
+                                        System.out.println("Remitente: ONG");
+                                        break;
+                                }
+                                switch (martesData[i][3]) {
+                                    case "0":
+                                        System.out.println("Receptor: natural");
+                                        break;
+                                    case "1":
+                                        System.out.println("Receptor: jurídica");
+                                        break;
+                                    case "2":
+                                        System.out.println("Receptor: ONG");
+                                        break;
+                                }
+                                System.out.println("Hora del día: " + martesData[i][4]);
+                                System.out.println("--------------*--------------");
+                                System.out.println();
+                                System.out.println("--------------*--------------");
+
+                            }
+                        } else if (x.equals("miercoles")) {
+                            System.out.println("A continuación " + n + " transacciones del " + x);
+                            System.out.println();
+                            System.out.println("--------------*--------------");
+                            for (int i = 0; i < n; i++) {
+                                System.out.println("ID: " + miercolesData[i][0]);
+                                System.out.println("Envió: $" + miercolesData[i][1]);
+                                switch (miercolesData[i][2]) {
+                                    case "0":
+                                        System.out.println("Remitente: natural");
+                                        break;
+                                    case "1":
+                                        System.out.println("Remitente: jurídica");
+                                        break;
+                                    case "2":
+                                        System.out.println("Remitente: ONG");
+                                        break;
+                                }
+                                switch (miercolesData[i][3]) {
+                                    case "0":
+                                        System.out.println("Receptor: natural");
+                                        break;
+                                    case "1":
+                                        System.out.println("Receptor: jurídica");
+                                        break;
+                                    case "2":
+                                        System.out.println("Receptor: ONG");
+                                        break;
+                                }
+                                System.out.println("Hora del día: " + miercolesData[i][4]);
+                                System.out.println("--------------*--------------");
+                                System.out.println();
+                                System.out.println("--------------*--------------");
+
+                            }
+                        } else if (x.equals("jueves")) {
+                            System.out.println("A continuación " + n + " transacciones del " + x);
+                            System.out.println();
+                            System.out.println("--------------*--------------");
+                            for (int i = 0; i < n; i++) {
+                                System.out.println("ID: " + juevesData[i][0]);
+                                System.out.println("Envió: $" + martesData[i][1]);
+                                switch (juevesData[i][2]) {
+                                    case "0":
+                                        System.out.println("Remitente: natural");
+                                        break;
+                                    case "1":
+                                        System.out.println("Remitente: jurídica");
+                                        break;
+                                    case "2":
+                                        System.out.println("Remitente: ONG");
+                                        break;
+                                }
+                                switch (juevesData[i][3]) {
+                                    case "0":
+                                        System.out.println("Receptor: natural");
+                                        break;
+                                    case "1":
+                                        System.out.println("Receptor: jurídica");
+                                        break;
+                                    case "2":
+                                        System.out.println("Receptor: ONG");
+                                        break;
+                                }
+                                System.out.println("Hora del día: " + juevesData[i][4]);
+                                System.out.println("--------------*--------------");
+                                System.out.println();
+                                System.out.println("--------------*--------------");
+
+                            }
+                        } else if (x.equals("viernes")) {
+                            System.out.println("A continuación " + n + " transacciones del " + x);
+                            System.out.println();
+                            System.out.println("--------------*--------------");
+                            for (int i = 0; i < n; i++) {
+                                System.out.println("ID: " + viernesData[i][0]);
+                                System.out.println("Envió: $" + martesData[i][1]);
+                                switch (viernesData[i][2]) {
+                                    case "0":
+                                        System.out.println("Remitente: natural");
+                                        break;
+                                    case "1":
+                                        System.out.println("Remitente: jurídica");
+                                        break;
+                                    case "2":
+                                        System.out.println("Remitente: ONG");
+                                        break;
+                                }
+                                switch (viernesData[i][3]) {
+                                    case "0":
+                                        System.out.println("Receptor: natural");
+                                        break;
+                                    case "1":
+                                        System.out.println("Receptor: jurídica");
+                                        break;
+                                    case "2":
+                                        System.out.println("Receptor: ONG");
+                                        break;
+                                }
+                                System.out.println("Hora del día: " + viernesData[i][4]);
+                                System.out.println("--------------*--------------");
+                                System.out.println();
+                                System.out.println("--------------*--------------");
+
+                            }
+                        } else if (x.equals("sabado")) {
+                            System.out.println("A continuación " + n + " transacciones del " + x);
+                            System.out.println();
+                            System.out.println("--------------*--------------");
+                            for (int i = 0; i < n; i++) {
+                                System.out.println("ID: " + sabadoData[i][0]);
+                                System.out.println("Envió: $" + sabadoData[i][1]);
+                                switch (sabadoData[i][2]) {
+                                    case "0":
+                                        System.out.println("Remitente: natural");
+                                        break;
+                                    case "1":
+                                        System.out.println("Remitente: jurídica");
+                                        break;
+                                    case "2":
+                                        System.out.println("Remitente: ONG");
+                                        break;
+                                }
+                                switch (sabadoData[i][3]) {
+                                    case "0":
+                                        System.out.println("Receptor: natural");
+                                        break;
+                                    case "1":
+                                        System.out.println("Receptor: jurídica");
+                                        break;
+                                    case "2":
+                                        System.out.println("Receptor: ONG");
+                                        break;
+                                }
+                                System.out.println("Hora del día: " + sabadoData[i][4]);
+                                System.out.println("--------------*--------------");
+                                System.out.println();
+                                System.out.println("--------------*--------------");
+
+                            }
+                        } else if (x.equals("domingo")) {
+                            System.out.println("A continuación " + n + " transacciones del " + x);
+                            System.out.println();
+                            System.out.println("--------------*--------------");
+                            for (int i = 0; i < n; i++) {
+                                System.out.println("ID: " + domingoData[i][0]);
+                                System.out.println("Envió: $" + domingoData[i][1]);
+                                switch (domingoData[i][2]) {
+                                    case "0":
+                                        System.out.println("Remitente: natural");
+                                        break;
+                                    case "1":
+                                        System.out.println("Remitente: jurídica");
+                                        break;
+                                    case "2":
+                                        System.out.println("Remitente: ONG");
+                                        break;
+                                }
+                                switch (domingoData[i][3]) {
+                                    case "0":
+                                        System.out.println("Receptor: natural");
+                                        break;
+                                    case "1":
+                                        System.out.println("Receptor: jurídica");
+                                        break;
+                                    case "2":
+                                        System.out.println("Receptor: ONG");
+                                        break;
+                                }
+                                System.out.println("Hora del día: " + domingoData[i][4]);
+                                System.out.println("--------------*--------------");
+                                System.out.println();
+                                System.out.println("--------------*--------------");
+
+                            }
+                        } else {
+                            System.out.println("Ingrese un día válido");
+                        }
                         break;
 
                     case 0:
