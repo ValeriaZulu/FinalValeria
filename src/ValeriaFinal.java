@@ -116,7 +116,7 @@ public class ValeriaFinal {
         return response;
     }
 
-    //Función para imprimir n datos de x día 
+    // Función para imprimir n datos de x día
     public static void getInfoDeseada(String[][] resultados, String x, int n) {
 
         System.out.println("A continuación " + n + " transacciones del " + x);
@@ -354,30 +354,51 @@ public class ValeriaFinal {
 
                     case 4:
                         // imprimir n datos de x día
-                        // Se solicita al usuario ingresar x y n
-                        System.out.println("Ingresa el día: ");
-                        String x = scanner.next();
-                        System.out.println("Ingresa cuántas transacciones del " + x + " quieres ver: ");
-                        int n = scanner.nextInt();
+                        int contador = 0;
+                        while (contador == 0) {
 
-                        // Se verifica qué día desea ver el usuario y se llama la función para imprimir
-                        // la información la cantidad de veces que el usuario solicitó
-                        if (x.equals("lunes")) {
-                            getInfoDeseada(lunesData, x, n);
-                        } else if (x.equals("martes")) {
-                            getInfoDeseada(martesData, x, n);
-                        } else if (x.equals("miercoles")) {
-                            getInfoDeseada(miercolesData, x, n);
-                        } else if (x.equals("jueves")) {
-                            getInfoDeseada(juevesData, x, n);
-                        } else if (x.equals("viernes")) {
-                            getInfoDeseada(viernesData, x, n);
-                        } else if (x.equals("sabado")) {
-                            getInfoDeseada(sabadoData, x, n);
-                        } else if (x.equals("domingo")) {
-                            getInfoDeseada(domingoData, x, n);
-                        } else {
-                            System.out.println("Ingrese un día válido");
+                            try {
+                                // Se solicita al usuario ingresar x y n
+                                System.out.print("Ingresa el día: ");
+                                String x = scanner.next();
+                                System.out.print("Ingresa cuántas transacciones del " + x + " quieres ver: ");
+                                int n = scanner.nextInt();
+
+                                // Se verifica qué día desea ver el usuario y se llama la función para imprimir
+                                // la información la cantidad de veces que el usuario solicitó
+                                if (x.equals("lunes")) {
+                                    getInfoDeseada(lunesData, x, n);
+                                    contador++;
+                                } else if (x.equals("martes")) {
+                                    getInfoDeseada(martesData, x, n);
+                                    contador++;
+                                } else if (x.equals("miercoles")) {
+                                    getInfoDeseada(miercolesData, x, n);
+                                    contador++;
+                                } else if (x.equals("jueves")) {
+                                    getInfoDeseada(juevesData, x, n);
+                                    contador++;
+                                } else if (x.equals("viernes")) {
+                                    getInfoDeseada(viernesData, x, n);
+                                    contador++;
+                                } else if (x.equals("sabado")) {
+                                    getInfoDeseada(sabadoData, x, n);
+                                    contador++;
+                                } else if (x.equals("domingo")) {
+                                    getInfoDeseada(domingoData, x, n);
+                                    contador++;
+                                } else {
+                                    System.out.println();
+                                    System.out.println("Ingrese un día válido");
+                                    System.out.println();
+                                }
+                            } catch (InputMismatchException e) {
+                                System.out.println();
+                                System.out.println("Ingresa un número válido");
+                                System.out.println();
+                                scanner.next();
+
+                            }
                         }
                         break;
 
